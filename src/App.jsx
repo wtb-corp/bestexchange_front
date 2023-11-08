@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Container, Typography } from '@mui/material'
+import { Container, Typography, Button } from '@mui/material'
 import { useTelegram } from './hooks/useTelegram'
 import SuperSelect from './components/SuperSelect'
 import GetLisr from './components/GetLisr'
@@ -24,7 +24,7 @@ function App() {
       tg.MainButton.textColor = "#CCCCCC";
       tg.MainButton.disable();
       handleClick();
-    });
+    })
   }, []);
 
   const boxStyles = {
@@ -38,14 +38,15 @@ function App() {
     position: "relative"
   }
 
-  onToggleButton();
-
   return (
-    <Container maxWidth="xs" sx={boxStyles}>
-      <Typography variant="h6" component="h2" gutterBottom>BestExChanger beta v.0.2</Typography>
-      <GetLisr />
+    <>
+      <Container maxWidth="xs" sx={boxStyles}>
+        <Typography variant="h6" component="h2" gutterBottom>BestExChanger beta v.0.3</Typography>
+        <GetLisr />
+        <Button variant="contained" onClick={() => {handleClick()}}>TELEGRAMMED</Button>
+      </Container>
       {isShown && <ResultList />}
-    </Container>
+    </>
   )
 }
 
