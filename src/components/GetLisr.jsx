@@ -10,7 +10,7 @@ import { useTelegram } from '../hooks/useTelegram';
 
 const {tg, onToggleButton} = useTelegram();
 
-const baseURL = "http://95.216.214.131:8000/valutes/no_cash/";
+const baseURL = "https://lenient-hippo-conversely.ngrok-free.app/valutes/no_cash/";
 
 const GetLisr = () => {
     const [data, setData] = React.useState(null);
