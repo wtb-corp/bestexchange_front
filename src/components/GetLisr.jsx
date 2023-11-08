@@ -8,6 +8,8 @@ import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import { useTelegram } from '../hooks/useTelegram';
 
+const {tg, onToggleButton} = useTelegram();
+
 const baseURL = "http://95.216.214.131:8000/valutes/no_cash/";
 
 const GetLisr = () => {
@@ -39,59 +41,59 @@ const GetLisr = () => {
                     <em>None</em>
                     </MenuItem>
                     <ListSubheader>{title1}</ListSubheader>
-                    <MenuItem value={1}>{dataKeys[0][1][0].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[0][1][1].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[0][1][2].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[0][1][3].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[0][1][4].name}</MenuItem>
+                    <MenuItem value={dataKeys[0][1][0].name}>{dataKeys[0][1][0].name}</MenuItem>
+                    <MenuItem value={dataKeys[0][1][1].name}>{dataKeys[0][1][1].name}</MenuItem>
+                    <MenuItem value={dataKeys[0][1][2].name}>{dataKeys[0][1][2].name}</MenuItem>
+                    <MenuItem value={dataKeys[0][1][3].name}>{dataKeys[0][1][3].name}</MenuItem>
+                    <MenuItem value={dataKeys[0][1][4].name}>{dataKeys[0][1][4].name}</MenuItem>
                     <ListSubheader>{title2}</ListSubheader>
-                    <MenuItem value={1}>{dataKeys[1][1][0].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[1][1][1].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[1][1][2].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[1][1][3].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[1][1][4].name}</MenuItem>
+                    <MenuItem value={dataKeys[1][1][0].name}>{dataKeys[1][1][0].name}</MenuItem>
+                    <MenuItem value={dataKeys[1][1][1].name}>{dataKeys[1][1][1].name}</MenuItem>
+                    <MenuItem value={dataKeys[1][1][2].name}>{dataKeys[1][1][2].name}</MenuItem>
+                    <MenuItem value={dataKeys[1][1][3].name}>{dataKeys[1][1][3].name}</MenuItem>
+                    <MenuItem value={dataKeys[1][1][4].name}>{dataKeys[1][1][4].name}</MenuItem>
                     <ListSubheader>{title3}</ListSubheader>
-                    <MenuItem value={1}>{dataKeys[2][1][0].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[2][1][1].name}</MenuItem>
+                    <MenuItem value={dataKeys[2][1][0].name}>{dataKeys[2][1][0].name}</MenuItem>
+                    <MenuItem value={dataKeys[2][1][1].name}>{dataKeys[2][1][1].name}</MenuItem>
                     <ListSubheader>{title4}</ListSubheader>
-                    <MenuItem value={1}>{dataKeys[3][1][0].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[3][1][1].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[3][1][2].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[3][1][3].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[3][1][4].name}</MenuItem>
+                    <MenuItem value={dataKeys[3][1][0].name}>{dataKeys[3][1][0].name}</MenuItem>
+                    <MenuItem value={dataKeys[3][1][1].name}>{dataKeys[3][1][1].name}</MenuItem>
+                    <MenuItem value={dataKeys[3][1][2].name}>{dataKeys[3][1][2].name}</MenuItem>
+                    <MenuItem value={dataKeys[3][1][3].name}>{dataKeys[3][1][3].name}</MenuItem>
+                    <MenuItem value={dataKeys[3][1][4].name}>{dataKeys[3][1][4].name}</MenuItem>
                     <ListSubheader>{title5}</ListSubheader>
-                    <MenuItem value={1}>{dataKeys[4][1][0].name}</MenuItem>
+                    <MenuItem value={dataKeys[4][1][0].name}>{dataKeys[4][1][0].name}</MenuItem>
                 </Select>
             </FormControl>
             <FormControl sx={{ m: 1, minWidth: 320 }}>
                 <InputLabel htmlFor="grouped-select">ПОЛУЧАЮ</InputLabel>
-                <Select defaultValue="" id="grouped-select" label="Grouping">
+                <Select defaultValue="" id="grouped-select" label="Grouping" onChange={onToggleButton}>
                     <MenuItem value="">
                     <em>None</em>
                     </MenuItem>
                     <ListSubheader>{title1}</ListSubheader>
-                    <MenuItem value={1}>{dataKeys[0][1][0].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[0][1][1].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[0][1][2].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[0][1][3].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[0][1][4].name}</MenuItem>
+                    <MenuItem value={dataKeys[0][1][0].name}>{dataKeys[0][1][0].name}</MenuItem>
+                    <MenuItem value={dataKeys[0][1][1].name}>{dataKeys[0][1][1].name}</MenuItem>
+                    <MenuItem value={dataKeys[0][1][2].name}>{dataKeys[0][1][2].name}</MenuItem>
+                    <MenuItem value={dataKeys[0][1][3].name}>{dataKeys[0][1][3].name}</MenuItem>
+                    <MenuItem value={dataKeys[0][1][4].name}>{dataKeys[0][1][4].name}</MenuItem>
                     <ListSubheader>{title2}</ListSubheader>
-                    <MenuItem value={1}>{dataKeys[1][1][0].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[1][1][1].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[1][1][2].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[1][1][3].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[1][1][4].name}</MenuItem>
+                    <MenuItem value={dataKeys[1][1][0].name}>{dataKeys[1][1][0].name}</MenuItem>
+                    <MenuItem value={dataKeys[1][1][1].name}>{dataKeys[1][1][1].name}</MenuItem>
+                    <MenuItem value={dataKeys[1][1][2].name}>{dataKeys[1][1][2].name}</MenuItem>
+                    <MenuItem value={dataKeys[1][1][3].name}>{dataKeys[1][1][3].name}</MenuItem>
+                    <MenuItem value={dataKeys[1][1][4].name}>{dataKeys[1][1][4].name}</MenuItem>
                     <ListSubheader>{title3}</ListSubheader>
-                    <MenuItem value={1}>{dataKeys[2][1][0].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[2][1][1].name}</MenuItem>
+                    <MenuItem value={dataKeys[2][1][0].name}>{dataKeys[2][1][0].name}</MenuItem>
+                    <MenuItem value={dataKeys[2][1][1].name}>{dataKeys[2][1][1].name}</MenuItem>
                     <ListSubheader>{title4}</ListSubheader>
-                    <MenuItem value={1}>{dataKeys[3][1][0].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[3][1][1].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[3][1][2].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[3][1][3].name}</MenuItem>
-                    <MenuItem value={2}>{dataKeys[3][1][4].name}</MenuItem>
+                    <MenuItem value={dataKeys[3][1][0].name}>{dataKeys[3][1][0].name}</MenuItem>
+                    <MenuItem value={dataKeys[3][1][1].name}>{dataKeys[3][1][1].name}</MenuItem>
+                    <MenuItem value={dataKeys[3][1][2].name}>{dataKeys[3][1][2].name}</MenuItem>
+                    <MenuItem value={dataKeys[3][1][3].name}>{dataKeys[3][1][3].name}</MenuItem>
+                    <MenuItem value={dataKeys[3][1][4].name}>{dataKeys[3][1][4].name}</MenuItem>
                     <ListSubheader>{title5}</ListSubheader>
-                    <MenuItem value={1}>{dataKeys[4][1][0].name}</MenuItem>
+                    <MenuItem value={dataKeys[4][1][0].name}>{dataKeys[4][1][0].name}</MenuItem>
                 </Select>
             </FormControl>
         </div>

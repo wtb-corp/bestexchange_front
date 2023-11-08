@@ -42,7 +42,7 @@ function App() {
 
   return (
     <Container maxWidth="xs" sx={boxStyles}>
-      <Typography variant="h6" component="h2" gutterBottom>BestExChanger beta v.0.3</Typography>
+      <Typography variant="h6" component="h2" gutterBottom>BestExChanger beta v.0.2</Typography>
       <GetLisr />
       {isShown && <ResultList />}
     </Container>
