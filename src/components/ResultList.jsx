@@ -8,7 +8,7 @@ import { useTelegram } from '../hooks/useTelegram';
 
 const {tg, onToggleButton} = useTelegram();
 
-const getURL = "http://95.216.214.131:8000/directions/";
+const getURL = "https://wttonline.ru/directions/";
 
 const ResultList = () => {
     const [data, setData] = React.useState(null);

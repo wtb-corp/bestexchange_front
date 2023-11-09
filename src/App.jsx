@@ -19,7 +19,7 @@ function App() {
     tg.MainButton.onClick(() => {
       tg.sendData("Привет бэкенд!"); 
       //при клике на основную кнопку отправляем данные в строковом виде
-      tg.MainButton.setText("Привет бэкенд!");
+      tg.MainButton.setText("ПОЛУЧИТЕ ТОП 5");
       tg.MainButton.color = "#FDFDFD";
       tg.MainButton.textColor = "#CCCCCC";
       tg.MainButton.disable();
@@ -43,7 +43,7 @@ function App() {
       <Container maxWidth="xs" sx={boxStyles}>
         <Typography variant="h6" component="h2" gutterBottom>BestExChanger beta v.0.3</Typography>
         <GetLisr />
-        <Button variant="contained" onClick={() => {handleClick()}}>TELEGRAMMED</Button>
+        {/* <Button variant="contained" onClick={() => {handleClick()}}>TELEGRAMMED</Button> */}
       </Container>
       {isShown && <ResultList />}
     </>
