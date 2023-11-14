@@ -33,19 +33,19 @@ function App() {
     textAlign: "center",
     color: "#222",
     padding: "2rem",
-    borderRadius: 2,
     boxShadow: "0px 10px 15px -3px rgba(0,0,0,0.1)",
-    position: "relative"
+    position: "relative",
+    with: "100%"
   }
 
   return (
     <>
-      <Container maxWidth="xs" sx={boxStyles}>
-        <Typography variant="h6" component="h2" gutterBottom>BestExChanger beta v.0.3</Typography>
+      <Container sx={boxStyles}>
+        <Typography variant="h6" component="h2" gutterBottom>BestExChanger beta v.0.4</Typography>
         <GetLisr />
         {/* <Button variant="contained" onClick={() => {handleClick()}}>TELEGRAMMED</Button> */}
       </Container>
-      {isShown && <ResultList />}
+      {isShown && <ResultList from="BTC" to="SBERRUB" />}
     </>
   )
 }

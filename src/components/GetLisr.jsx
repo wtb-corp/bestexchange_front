@@ -10,7 +10,7 @@ import { useTelegram } from '../hooks/useTelegram';
 
 const {tg, onToggleButton} = useTelegram();
 
-const getURL = "https://wttonline.ru/valutes/no_cash/";
+const getURL = "https://wttonline.ru/api/valute/no_cash";
 
 const GetLisr = () => {
     const [data, setData] = React.useState(null);
@@ -30,7 +30,6 @@ const GetLisr = () => {
     const title2 = JSON.stringify(dataKeys[1][0]).replaceAll('"', '')
     const title3 = JSON.stringify(dataKeys[2][0]).replaceAll('"', '')
     const title4 = JSON.stringify(dataKeys[3][0]).replaceAll('"', '')
-    const title5 = JSON.stringify(dataKeys[4][0]).replaceAll('"', '')
 
     return (
         <div>
@@ -61,8 +60,6 @@ const GetLisr = () => {
                     <MenuItem value={dataKeys[3][1][2].name}>{dataKeys[3][1][2].name}</MenuItem>
                     <MenuItem value={dataKeys[3][1][3].name}>{dataKeys[3][1][3].name}</MenuItem>
                     <MenuItem value={dataKeys[3][1][4].name}>{dataKeys[3][1][4].name}</MenuItem>
-                    <ListSubheader>{title5}</ListSubheader>
-                    <MenuItem value={dataKeys[4][1][0].name}>{dataKeys[4][1][0].name}</MenuItem>
                 </Select>
             </FormControl>
             <FormControl sx={{ m: 1, minWidth: 320 }}>
@@ -92,8 +89,6 @@ const GetLisr = () => {
                     <MenuItem value={dataKeys[3][1][2].name}>{dataKeys[3][1][2].name}</MenuItem>
                     <MenuItem value={dataKeys[3][1][3].name}>{dataKeys[3][1][3].name}</MenuItem>
                     <MenuItem value={dataKeys[3][1][4].name}>{dataKeys[3][1][4].name}</MenuItem>
-                    <ListSubheader>{title5}</ListSubheader>
-                    <MenuItem value={dataKeys[4][1][0].name}>{dataKeys[4][1][0].name}</MenuItem>
                 </Select>
             </FormControl>
         </div>
