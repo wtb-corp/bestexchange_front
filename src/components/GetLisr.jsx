@@ -42,9 +42,6 @@ const GetLisr = () => {
                     <ListSubheader>{title1}</ListSubheader>
                     <MenuItem value={dataKeys[0][1][0].name}>{dataKeys[0][1][0].name}</MenuItem>
                     <MenuItem value={dataKeys[0][1][1].name}>{dataKeys[0][1][1].name}</MenuItem>
-                    <MenuItem value={dataKeys[0][1][2].name}>{dataKeys[0][1][2].name}</MenuItem>
-                    <MenuItem value={dataKeys[0][1][3].name}>{dataKeys[0][1][3].name}</MenuItem>
-                    <MenuItem value={dataKeys[0][1][4].name}>{dataKeys[0][1][4].name}</MenuItem>
                     <ListSubheader>{title2}</ListSubheader>
                     <MenuItem value={dataKeys[1][1][0].name}>{dataKeys[1][1][0].name}</MenuItem>
                     <MenuItem value={dataKeys[1][1][1].name}>{dataKeys[1][1][1].name}</MenuItem>
@@ -71,9 +68,6 @@ const GetLisr = () => {
                     <ListSubheader>{title1}</ListSubheader>
                     <MenuItem value={dataKeys[0][1][0].name}>{dataKeys[0][1][0].name}</MenuItem>
                     <MenuItem value={dataKeys[0][1][1].name}>{dataKeys[0][1][1].name}</MenuItem>
-                    <MenuItem value={dataKeys[0][1][2].name}>{dataKeys[0][1][2].name}</MenuItem>
-                    <MenuItem value={dataKeys[0][1][3].name}>{dataKeys[0][1][3].name}</MenuItem>
-                    <MenuItem value={dataKeys[0][1][4].name}>{dataKeys[0][1][4].name}</MenuItem>
                     <ListSubheader>{title2}</ListSubheader>
                     <MenuItem value={dataKeys[1][1][0].name}>{dataKeys[1][1][0].name}</MenuItem>
                     <MenuItem value={dataKeys[1][1][1].name}>{dataKeys[1][1][1].name}</MenuItem>

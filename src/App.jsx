@@ -19,7 +19,7 @@ function App() {
     tg.MainButton.onClick(() => {
       tg.sendData("Привет бэкенд!"); 
       //при клике на основную кнопку отправляем данные в строковом виде
-      tg.MainButton.setText("ПОЛУЧИТЕ ТОП 5");
+      tg.MainButton.setText("Спасибо за работу с ботом");
       tg.MainButton.color = "#FDFDFD";
       tg.MainButton.textColor = "#CCCCCC";
       tg.MainButton.disable();
