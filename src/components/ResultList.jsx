@@ -87,7 +87,7 @@ const ResultList = ({ from, to }) => {
                     />
                     <CardContent>
                         <Typography variant="body2" color="text.secondary">
-                            ДОСТУПНО ДЛЯ ОБМЕНА: from {d.min_amount} to {d.max_amount}
+                            ДОСТУПНО ДЛЯ ОБМЕНА: от {d.min_amount} до {d.max_amount} <br />
                             ПАРТНЕРСКАЯ ССЫЛКА: <a href={d.partner_link}>открывается в том-же окне</a><br /> <a target='_blank' href={d.partner_link}>открывается в новом окне</a>
                         </Typography>
                     </CardContent>
