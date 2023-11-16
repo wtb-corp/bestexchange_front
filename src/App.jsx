@@ -1,30 +1,45 @@
-import { useEffect, useState } from 'react'
-import { Container, Typography, Button } from '@mui/material'
-import { useTelegram } from './hooks/useTelegram'
-import SuperSelect from './components/SuperSelect'
-import GetLisr from './components/GetLisr'
-import ResultList from './components/ResultList'
+// App.js
+import React, { useEffect, useState } from 'react';
+import { Container, Typography, Button } from '@mui/material';
+import { useTelegram } from './hooks/useTelegram';
+import GetCurrencyList from './components/GetCurrencyList';
+import ResultList from './components/ResultList';
 
-const {tg, onToggleButton} = useTelegram();
+const { tg, onToggleButton } = useTelegram();
 
 function App() {
   const [isShown, setIsShown] = useState(false);
+  const [selectedFrom, setSelectedFrom] = useState('');
+  const [selectedTo, setSelectedTo] = useState('');
 
-  const handleClick = event => {
-    setIsShown(current => !current);
+  const handleClick = () => {
+    setIsShown((current) => !current);
+  
+    // Add a timeout for 3 seconds (3000 milliseconds)
+    setTimeout(() => {
+      // Code to execute after the timeout
+      console.log('Timeout completed after 3 seconds');
+    }, 5000);
   };
 
-  useEffect( () => { 
+  const handleSelect = (value, type) => {
+    if (type === 'from') {
+      setSelectedFrom(value);
+    } else if (type === 'to') {
+      setSelectedTo(value);
+    }
+  };
+
+  useEffect(() => {
     tg.ready();
     tg.MainButton.onClick(() => {
-      tg.sendData("Привет бэкенд!"); 
-      //при клике на основную кнопку отправляем данные в строковом виде
+      tg.sendData("ПОДОБРАТЬ");
       tg.MainButton.setText("Спасибо за работу с ботом");
       tg.MainButton.color = "#FDFDFD";
       tg.MainButton.textColor = "#CCCCCC";
       tg.MainButton.disable();
       handleClick();
-    })
+    });
   }, []);
 
   const boxStyles = {
@@ -35,19 +50,24 @@ function App() {
     padding: "2rem",
     boxShadow: "0px 10px 15px -3px rgba(0,0,0,0.1)",
     position: "relative",
-    with: "100%"
-  }
+    width: "100%",
+  };
 
   return (
     <>
       <Container sx={boxStyles}>
-        <Typography variant="h6" component="h2" gutterBottom>BestExChanger beta v.0.4</Typography>
-        <GetLisr />
-        {/* <Button variant="contained" onClick={() => {handleClick()}}>TELEGRAMMED</Button> */}
+        <Typography variant="h6" component="h2" gutterBottom>
+          BestExChanger beta v.0.5
+        </Typography>
+        <GetCurrencyList onSelect={(value) => handleSelect(value, 'from')} type="from" />
+        <GetCurrencyList onSelect={(value) => handleSelect(value, 'to')} type="to" />
+        {/* <Button variant="contained" onClick={handleClick}>
+          TELEGRAMMED
+        </Button> */}
       </Container>
-      {isShown && <ResultList from="BTC" to="SBERRUB" />}
+      {isShown && <ResultList from={selectedFrom} to={selectedTo} />}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
