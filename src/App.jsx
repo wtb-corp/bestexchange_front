@@ -40,7 +40,7 @@ function App() {
     if (isValidSelection) {
       onToggleButton(); // Enable the button
     }
-  }, []);
+  }, [selectedFrom, selectedTo]);
 
   useEffect(() => {
     tg.ready();
