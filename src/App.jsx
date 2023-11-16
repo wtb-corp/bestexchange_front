@@ -18,8 +18,12 @@ function App() {
     // Add a timeout for 3 seconds (3000 milliseconds)
     setTimeout(() => {
       // Code to execute after the timeout
-      console.log('Timeout completed after 3 seconds');
-    }, 5000);
+      console.log('Timeout completed after 6 seconds');
+
+      // Place your additional code here, e.g., sending data to Telegram
+      tg.sendData("Additional data after timeout");
+      onToggleButton();
+    }, 6000);
   };
 
   const handleSelect = (value, type) => {
