@@ -22,7 +22,6 @@ function App() {
 
       // Place your additional code here, e.g., sending data to Telegram
       tg.sendData("Additional data after timeout");
-      onToggleButton();
     }, 6000);
   };
 
@@ -33,12 +32,21 @@ function App() {
       setSelectedTo(value);
     }
   };
+  
+  useEffect(() => {
+    // Check if both fields are selected and not equal
+    const isValidSelection = selectedFrom !== '' && selectedTo !== '' && selectedFrom !== selectedTo;
+  
+    if (isValidSelection) {
+      onToggleButton(); // Enable the button
+    }
+  }, [selectedFrom, selectedTo]);
 
   useEffect(() => {
     tg.ready();
     tg.MainButton.onClick(() => {
-      tg.sendData("ПОДОБРАТЬ");
-      tg.MainButton.setText("Спасибо за работу с ботом");
+      tg.sendData("Моя какая-то дата неизвестная");
+      tg.MainButton.setText("Теперь приложение работает на лету");
       tg.MainButton.color = "#FDFDFD";
       tg.MainButton.textColor = "#CCCCCC";
       tg.MainButton.disable();
