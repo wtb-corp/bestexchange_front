@@ -29,7 +29,6 @@ const ExpandMore = styled((props) => {
 }));
 
 const ResultList = ({ from, to }) => {
-    
     const [expanded, setExpanded] = React.useState(false)
 
     const [data, setData] = useState(null)
