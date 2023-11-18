@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+
 import {
   FormControl,
   InputLabel,
@@ -7,30 +8,30 @@ import {
   MenuItem,
   Select,
   CircularProgress,
-} from '@mui/material';
+} from '@mui/material'
 
-const API_BASE_URL = 'https://wttonline.ru/api';
+const API_BASE_URL = 'https://wttonline.ru/api'
 
 const GetCurrencyList = ({ onBaseCurrencyChange, onTargetCurrencyChange }) => {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [baseCurrencies, setBaseCurrencies] = useState([]);
-  const [selectedBaseCurrency, setSelectedBaseCurrency] = useState('');
-  const [availableDirections, setAvailableDirections] = useState([]);
-  const [selectedTargetCurrency, setSelectedTargetCurrency] = useState('');
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [baseCurrencies, setBaseCurrencies] = useState([])
+  const [selectedBaseCurrency, setSelectedBaseCurrency] = useState('')
+  const [availableDirections, setAvailableDirections] = useState([])
+  const [selectedTargetCurrency, setSelectedTargetCurrency] = useState('')
 
   // All currencies response
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const baseCurrenciesResponse = await axios.get(`${API_BASE_URL}/valute/no_cash`);
-        console.log('1) All currencies response:', baseCurrenciesResponse.data);
-        setBaseCurrencies(baseCurrenciesResponse.data);
-        setLoading(false);
+        const baseCurrenciesResponse = await axios.get(`${API_BASE_URL}/valute/no_cash`)
+        console.log('1) All currencies response:', baseCurrenciesResponse.data)
+        setBaseCurrencies(baseCurrenciesResponse.data)
+        setLoading(false)
       } catch (error) {
-        console.error(error);
-        setError('An error occurred while fetching data.');
-        setLoading(false);
+        console.error(error)
+        setError('An error occurred while fetching data.')
+        setLoading(false)
       }
     };
   
@@ -41,59 +42,59 @@ const GetCurrencyList = ({ onBaseCurrencyChange, onTargetCurrencyChange }) => {
   const handleBaseCurrencyChange = async (event) => {
     const selectedBaseCurrency = event.target.value;
     setSelectedBaseCurrency(selectedBaseCurrency);
-    setSelectedTargetCurrency(''); // Reset the value of the second Select
-    onTargetCurrencyChange('');
-    console.log('2) Selected base currency:', selectedBaseCurrency);
+    setSelectedTargetCurrency('') // Reset the value of the second Select
+    onTargetCurrencyChange('')
+    console.log('2) Selected base currency:', selectedBaseCurrency)
 
     try {
       const availableDirectionsResponse = await axios.get(
         `${API_BASE_URL}/available_directions?base=${selectedBaseCurrency}`
       );
-      setAvailableDirections(availableDirectionsResponse.data);
-      console.log('3) Available directions response:', availableDirectionsResponse.data);
+      setAvailableDirections(availableDirectionsResponse.data)
+      console.log('3) Available directions response:', availableDirectionsResponse.data)
       
       // Notify App component about the change
-      onBaseCurrencyChange(selectedBaseCurrency);
+      onBaseCurrencyChange(selectedBaseCurrency)
     } catch (error) {
-      console.error(error);
-      setError('An error occurred while fetching available directions.');
+      console.error(error)
+      setError('An error occurred while fetching available directions.')
     }
   }
 
   const handleTargetCurrencyChange = (event) => {
-    const selectedTargetCurrency = event.target.value;
-    setSelectedTargetCurrency(selectedTargetCurrency);
-    onTargetCurrencyChange(selectedTargetCurrency);
+    const selectedTargetCurrency = event.target.value
+    setSelectedTargetCurrency(selectedTargetCurrency)
+    onTargetCurrencyChange(selectedTargetCurrency)
   };
 
   const renderMenuItems = (data) => {
-    console.log('5) Rendering menu items with data:', data);
+    console.log('5) Rendering menu items with data:', data)
 
     if (!data) {
-      return null;
+      return null
     }
   
-    console.log('6) Data:', data);
+    console.log('6) Data:', data)
   
     return Object.keys(data).map((category) => {
-      const categoryData = data[category];
+      const categoryData = data[category]
       return [
         <ListSubheader key={`subheader-${category}`}>{category}</ListSubheader>,
         ...categoryData.map((item) => (
           <MenuItem key={item.code_name} value={item.code_name}>
             {item.name}
           </MenuItem>
-        )),
-      ];
-    });
-  };
+        ))
+      ]
+    })
+  }
 
   if (loading) {
-    return <CircularProgress />;
+    return <CircularProgress />
   }
 
   if (error) {
-    return <p>Error loading data. {error}</p>;
+    return <p>Error loading data. {error}</p>
   }
 
   return (
@@ -122,7 +123,7 @@ const GetCurrencyList = ({ onBaseCurrencyChange, onTargetCurrencyChange }) => {
         </Select>
       </FormControl>
     </>
-  );
-};
+  )
+}
 
-export default GetCurrencyList;
+export default GetCurrencyList

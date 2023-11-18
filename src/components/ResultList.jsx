@@ -1,33 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
+import {
+    Card,
+    CardHeader,
+    CardContent,
+    CardActions,
+    Collapse,
+    Avatar,
+    IconButton,
+    Typography,
+} from '@mui/material'
+
+import { styled } from '@mui/material/styles'
+import { red } from '@mui/material/colors'
+
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForward'
+
+// dropdown animation
 const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
+    const { expand, ...other } = props
+    return <IconButton {...other} />
   })(({ theme, expand }) => ({
     transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
-    }),
-}));
+    })
+}))
 
+// the Component
 const ResultList = ({ from, to }) => {
     const [expanded, setExpanded] = React.useState(false)
 
@@ -35,12 +39,12 @@ const ResultList = ({ from, to }) => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
-    console.log("ResultList - From:", from, "To:", to);
+    console.log("ResultList - From:", from, "To:", to)
 
     const apiUrl = `https://wttonline.ru/api/directions?valute_from=${from}&valute_to=${to}`
 
     const handleExpandClick = () => {
-        setExpanded(!expanded);
+        setExpanded(!expanded)
     }
 
     useEffect(() => {
@@ -92,13 +96,6 @@ const ResultList = ({ from, to }) => {
 
     if (error) {
         return <p>Error loading data. Please try again later.</p>
-    }
-
-    const boxStyles = {
-        background: "#fdfdfd",
-        textAlign: "center",
-        fontSize: "24px",
-        position: "relative",
     }
 
     return (
@@ -166,7 +163,7 @@ const ResultList = ({ from, to }) => {
                 </Card>
             ))}
         </>
-    );
-};
+    )
+}
 
-export default ResultList;
+export default ResultList
