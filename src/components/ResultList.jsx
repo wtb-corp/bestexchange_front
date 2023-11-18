@@ -40,7 +40,7 @@ const ResultList = ({ from, to }) => {
     const apiUrl = `https://wttonline.ru/api/directions?valute_from=${from}&valute_to=${to}`
 
     const handleExpandClick = () => {
-        setExpanded(!expanded)
+        setExpanded(!expanded);
     }
 
     useEffect(() => {

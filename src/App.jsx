@@ -68,9 +68,9 @@ function App() {
           onBaseCurrencyChange={handleBaseCurrencyChange}
           onTargetCurrencyChange={handleTargetCurrencyChange}
         />
-        <Button variant="contained" onClick={handleClick}>
+        {/* <Button variant="contained" onClick={handleClick}>
           TELEGRAMMED
-        </Button>
+        </Button> */}
       </Container>
       {isShown && <ResultList from={selectedBaseCurrency} to={selectedTargetCurrency} />}
     </>

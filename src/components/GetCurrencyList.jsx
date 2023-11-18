@@ -41,6 +41,8 @@ const GetCurrencyList = ({ onBaseCurrencyChange, onTargetCurrencyChange }) => {
   const handleBaseCurrencyChange = async (event) => {
     const selectedBaseCurrency = event.target.value;
     setSelectedBaseCurrency(selectedBaseCurrency);
+    setSelectedTargetCurrency(''); // Reset the value of the second Select
+    onTargetCurrencyChange('');
     console.log('2) Selected base currency:', selectedBaseCurrency);
 
     try {
