@@ -33,23 +33,23 @@ const GetCurrencyList = ({ onBaseCurrencyChange, onTargetCurrencyChange }) => {
         setError('An error occurred while fetching data.')
         setLoading(false)
       }
-    };
+    }
   
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   // Select the Base currency
   const handleBaseCurrencyChange = async (event) => {
     const selectedBaseCurrency = event.target.value;
     setSelectedBaseCurrency(selectedBaseCurrency);
     setSelectedTargetCurrency('') // Reset the value of the second Select
-    onTargetCurrencyChange('')
+    onTargetCurrencyChange('') // Reset the value of the second Select
     console.log('2) Selected base currency:', selectedBaseCurrency)
 
     try {
       const availableDirectionsResponse = await axios.get(
         `${API_BASE_URL}/available_directions?base=${selectedBaseCurrency}`
-      );
+      )
       setAvailableDirections(availableDirectionsResponse.data)
       console.log('3) Available directions response:', availableDirectionsResponse.data)
       
@@ -61,20 +61,21 @@ const GetCurrencyList = ({ onBaseCurrencyChange, onTargetCurrencyChange }) => {
     }
   }
 
+  // Select Target currency
   const handleTargetCurrencyChange = (event) => {
     const selectedTargetCurrency = event.target.value
     setSelectedTargetCurrency(selectedTargetCurrency)
+    // Notify App component about the change
     onTargetCurrencyChange(selectedTargetCurrency)
-  };
+  }
 
+  // Component that generates Items into Selet, from Json
   const renderMenuItems = (data) => {
     console.log('5) Rendering menu items with data:', data)
 
     if (!data) {
       return null
     }
-  
-    console.log('6) Data:', data)
   
     return Object.keys(data).map((category) => {
       const categoryData = data[category]
